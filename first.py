@@ -1,3 +1,6 @@
+import math
+
+
 def greet():
     print("No hello")
 greet()
@@ -45,3 +48,22 @@ def factorial(n):
     return n * factorial(n - 1)
 
 print(factorial(6))  
+
+def cubeVolume(n):
+    return n**3
+print(cubeVolume(4))
+print(cubeVolume(cubeVolume(3)))
+
+def anotherCube(n):
+    return ((math.sqrt(3) * n*n*n) / 9)
+print(anotherCube(4))
+
+def squareArea(n):
+    return n*n
+
+print(squareArea(5))
+
+def mystery(x,y):
+    res = (x+y)/(y-x)
+    return res
+print(mystery(2,3))
