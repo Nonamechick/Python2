@@ -120,3 +120,89 @@ print(modif)
 """
 
 
+#Comprehensions in Python
+
+# input_list = [1,2,3,4,4,5,6,7,7]
+# output_list = []
+# for var in input_list:
+#     if var % 2 == 0:
+#         output_list.append(var)
+
+# print("Output List using for Loop: ", output_list)
+
+# list_using_comp = [var for var in input_list if var % 2 == 0]
+
+# print("Output List using list comprehensions : ", list_using_comp)
+
+# output_list1 = []
+# for var in range(1,10):
+#     output_list1.append(var ** 2)
+# print("oUtput list using for loop : ", output_list1)
+
+
+# list_using_comp1 = [var **2 for var in range(1,10)]
+# print("Output list using list comprehension : ", list_using_comp1)
+
+# EX 1
+input_list = [1,2,3,4,4,5,6,7,7]
+output_list = []
+
+
+primes = [var for var in input_list if var % 2 == 1]
+print(primes)
+#2
+for i in range(2):
+    primes[4-i] = primes[i]
+    print(primes)
+#3
+for i in range(5):
+    primes[i] = primes[i]+1
+    print(primes)
+#4
+values = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+smth = [x + 10 if i == 0 or i == len(values) - 1 else x for i, x in enumerate(values)]
+print(smth)
+
+
+#5 
+u = ['yes', 'or', 'yes', 'or']
+result = ["YES" if x == "yes" else "NO" for x in u]
+print(result)
+
+
+#7
+names = ['Fruitz']
+names.insert(1,"Ann")
+names.insert(0,"Sue")
+
+names.pop(2)
+names.append('Lee')
+print(names)
+
+#8
+numbers = [1, 2, 3, 4, 2, 5, 2, 6]
+numbers = [x for x in numbers if x != 2]
+print(numbers)
+#9 no 
+a = [1, 2]
+b = [2, 1]
+
+print(a + b)  
+print(b + a)
+
+print(a + b == b + a)  
+print(a == b)          
+
+
+#10
+print([2]*3)
+print([3]*2)
+#11
+original = [1, 2, 3, 4]
+copy = original[:]  
+print(copy)  
+#12
+numbers = [10, 20, 30, 40, 50]
+average = sum(numbers) / len(numbers)
+print(average)  
