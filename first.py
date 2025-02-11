@@ -85,6 +85,8 @@ print(sorted_pairs)
 """
 
 #ex 
+"""
+
 students = [
     {"name": "Alice", "score": 88, "age": 20},
     {"name": "Bob", "score": 92, "age": 22},
@@ -115,3 +117,6 @@ words1 = ['hi','hello','to','world', 'a','python']
 modif = list(map(lambda word: word.upper() if len(word) > 3 else word, words1))
 
 print(modif) 
+"""
+
+
