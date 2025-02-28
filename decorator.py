@@ -90,7 +90,7 @@ def divide(a, b):
 print(divide(4, 2))  
 #print(divide(4))  
 """
-# EX    
+# EX    1
 
 def time_decorator(func):
     def wrapper(*args, **kwargs):
@@ -103,7 +103,34 @@ def time_decorator(func):
 
 @time_decorator
 def example_function():
-    time.sleep(2)  
+    time.sleep(1)  
 
 example_function()
 
+
+#ex 2
+def role_required(required_role):
+    def decorator(func):
+        def wrapper(user_role, *args, **kwargs):
+            if user_role == required_role:
+                return func(*args, **kwargs)
+            else:
+                print(f"Access denied: {user_role} does not have permission to execute {func.__name__}")
+                return None  
+        return wrapper
+    return decorator
+
+
+@role_required("admin")
+def admin_function():
+    print("Admin function executed!")
+
+@role_required("user")
+def user_function():
+    print("User function executed!")
+
+
+admin_function("admin")  
+admin_function("user")   
+user_function("user")    
+user_function("admin")   
