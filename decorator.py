@@ -134,3 +134,31 @@ admin_function("admin")
 admin_function("user")   
 user_function("user")    
 user_function("admin")   
+
+#ex3
+def cache_decorator(func):
+    cache = {}  
+
+    def wrapper(*args):
+        if args in cache:  
+            print("Returning cached result")
+            return cache[args]
+        else:
+            result = func(*args)  
+            cache[args] = result  
+            return result
+
+    return wrapper
+
+
+@cache_decorator
+def expensive_function(x, y):
+    print("Computing result...")
+    return x * y  
+
+
+print(expensive_function(3, 4))  
+print(expensive_function(3, 4))  
+print(expensive_function(5, 6))  
+print(expensive_function(5, 6))  
+
