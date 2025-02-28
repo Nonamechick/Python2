@@ -65,3 +65,9 @@ def decorator_two(func):
 def hello():
     print("hell, world")
 hello()
+
+class MyClass:
+    @staticmethod
+    def greet(name):
+        return f"Hello, {name}!"
+print(MyClass.greet("Kor"))
