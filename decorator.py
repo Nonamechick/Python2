@@ -33,3 +33,17 @@ def multiple(a,b):
 
 print(add(5,10))
 print(multiple(2,3))
+
+def print_output(should_print):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
+            if should_print:
+                print(f"Function output: {result}")
+            return result
+        return wrapper
+    return decorator
+@print_output(should_print=True)
+def add(a,b):
+    return a+b
+print(add(5,3))
