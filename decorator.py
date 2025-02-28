@@ -18,3 +18,18 @@ def decorator_function(original_function):
 def display():
     print('Display function executed')
 display()
+
+def log_function_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Function {func.__name__} was called with arguments {args} and keyword arguments {kwargs}")
+        return func(*args, **kwargs)
+    return wrapper
+@log_function_call
+def add(a,b):
+    return a+b
+@log_function_call
+def multiple(a,b):
+    return a*b
+
+print(add(5,10))
+print(multiple(2,3))
