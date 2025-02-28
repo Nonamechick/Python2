@@ -47,3 +47,21 @@ def print_output(should_print):
 def add(a,b):
     return a+b
 print(add(5,3))
+
+
+def decorator_one(func):
+    def wrapper():
+        print("Decorator One")
+        return func()
+    return wrapper
+def decorator_two(func):
+    def wrapper():
+        print("Decorator Two")
+        return func()
+    return wrapper
+
+@decorator_one
+@decorator_two
+def hello():
+    print("hell, world")
+hello()
