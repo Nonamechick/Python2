@@ -71,3 +71,19 @@ class MyClass:
     def greet(name):
         return f"Hello, {name}!"
 print(MyClass.greet("Kor"))
+
+def check_arguments(expected):
+    def decorator(func):
+        def wrapper(*args, **kwargs): 
+            if len(args) != expected:
+                print(f"Warning: Expected {expected} arguments, but got {len(args)}.")
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+@check_arguments(2)  
+def divide(a, b):
+    return a / b
+
+print(divide(4, 2))  
+#print(divide(4))  
