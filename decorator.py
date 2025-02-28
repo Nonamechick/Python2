@@ -1,3 +1,5 @@
+import time
+"""
 def my_decorator(func):
     def wrapper():
         print("Before function call")
@@ -87,3 +89,21 @@ def divide(a, b):
 
 print(divide(4, 2))  
 #print(divide(4))  
+"""
+# EX    
+
+def time_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()  
+        result = func(*args, **kwargs)  
+        end_time = time.time()  
+        print(f"Time taken by {func.__name__}: {end_time - start_time:.6f} seconds")
+        return result
+    return wrapper
+
+@time_decorator
+def example_function():
+    time.sleep(2)  
+
+example_function()
+
