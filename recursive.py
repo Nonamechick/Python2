@@ -72,7 +72,7 @@ if __name__ == '__main__':
     a, b = 48, 18
     print(f"GCD of {a} and {b}: {gcd(a, b)}")  
 
-    word = "racecar"
+    word = "Abdurahmon"
     print(f"Is '{word}' a palindrome? {is_palindrome(word)}")  
 
     lst = [3, 1, 4, 1, 5, 9, 2, 6]
