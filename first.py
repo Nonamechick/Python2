@@ -143,6 +143,7 @@ print(modif)
 # list_using_comp1 = [var **2 for var in range(1,10)]
 # print("Output list using list comprehension : ", list_using_comp1)
 
+"""
 # EX 1
 input_list = [1,2,3,4,4,5,6,7,7]
 output_list = []
@@ -206,3 +207,24 @@ print(copy)
 numbers = [10, 20, 30, 40, 50]
 average = sum(numbers) / len(numbers)
 print(average)  
+"""
+def cubeVolume(sideLength):
+    volume = sideLength**3
+    return volume
+res1 = cubeVolume(2)
+res2 = cubeVolume(10)
+print("A cube with side length 2 has volume",res1)
+print("A cube with side length 10 has volume", res2)
+
+def main():
+    res = cubeVolume(2)
+    print("A cube with side length 2 has volume", res)
+main()
+
+input_list = [1,2,3,4,4,5,6,7,7]
+list_using_comp = [var for var in input_list if var % 2 == 0]
+print("Output list using list comprehension: ", list_using_comp)
+
+input_l = [1,2,3,4,5,6,7]
+dict_using_comp = {var: var**3 for var in input_l if var % 2 != 0}
+print("output dict using dict comprehension", dict_using_comp)
