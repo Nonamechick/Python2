@@ -30,24 +30,39 @@ product = reduce((lambda x, y: x*y), [1,2,3,4])
 print(product)
 
 """
-def double(i):
-    return i*2
-num = [1,2,3,4]
-upd = map(double, num)
-print(list(upd))
+# def double(i):
+#     return i*2
+# num = [1,2,3,4]
+# upd = map(double, num)
+# print(list(upd))
 
-n = ['1','2','3']
-con = map(int, n)
-print(list(con))
+# n = ['1','2','3']
+# con = map(int, n)
+# print(list(con))
 
-print(list(map((lambda x:x**2), [1,2,3,4])))
+# print(list(map((lambda x:x**2), [1,2,3,4])))
 
-d = [1,2,3]
-s = [4,5,6]
+# d = [1,2,3]
+# s = [4,5,6]
+# o = map(lambda x, y: x+y,d,s)
+# print(list(o))
+
+# def convert(i):
+#     return (i*(9/5)) +32
+# p = list(map(convert, [0,25,100]))
+# print(p)
+
+num = [11,6,33,21,9, 2, 451,3,4]
+even = list(filter(lambda x: (x%2==0), num))
+print(even)
+
+print(list(map(len, ['kottt','dsdsds','dsdsds'])))
+
+print(list(map(str.upper, ['apple', 'banana', 'cherry'])))
+
+print(list(map(lambda x: (x**2) * 2, [1, 2, 3, 4])))
+
+d = (1,2,5)
+s = (2,5,6)
 o = map(lambda x, y: x+y,d,s)
 print(list(o))
-
-def convert(i):
-    return (i*(9/5)) +32
-p = list(map(convert, [0,25,100]))
-print(p)
