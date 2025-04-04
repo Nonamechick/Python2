@@ -1,3 +1,6 @@
+from functools import reduce
+"""
+
 car_dict = {'a': 'Mercedes-Benz','b': 'BWM', 'c': 'Ferrari', 'd': 'Lamborghini','e':'Jeep'}
 
 car_dict = dict(map(lambda x: (x[0], x[1]+'_'), car_dict.items() ))
@@ -18,3 +21,33 @@ my_list2 = [4,8,12,18,20,24,28]
 updated_list= map(myMapFunc, my_list1,my_list2)
 print(updated_list)
 print(list(updated_list))
+
+num = [12,37,34,26,9, 250, 451,3,10]
+even = list(filter(lambda x: (x%2==0), num))
+print(even)
+
+product = reduce((lambda x, y: x*y), [1,2,3,4])
+print(product)
+
+"""
+def double(i):
+    return i*2
+num = [1,2,3,4]
+upd = map(double, num)
+print(list(upd))
+
+n = ['1','2','3']
+con = map(int, n)
+print(list(con))
+
+print(list(map((lambda x:x**2), [1,2,3,4])))
+
+d = [1,2,3]
+s = [4,5,6]
+o = map(lambda x, y: x+y,d,s)
+print(list(o))
+
+def convert(i):
+    return (i*(9/5)) +32
+p = list(map(convert, [0,25,100]))
+print(p)
