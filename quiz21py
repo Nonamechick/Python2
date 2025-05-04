@@ -1,0 +1,140 @@
+# #b
+
+# t = int(input())
+# for _ in range(t):
+#     n = int(input())
+#     a = list(map(int, input().split()))
+#     max_blank = current = 0
+#     for num in a:
+#         if num == 0:
+#             current += 1
+#             max_blank = max(max_blank, current)
+#         else:
+#             current = 0
+#     print(max_blank)
+# #a
+# t = int(input())
+# for _ in range(t):
+#     n = int(input())
+#     digit_sum = n // 10 + n % 10
+#     print(digit_sum)
+# #d
+# t = int(input())
+# for _ in range(t):
+#     rating = int(input())
+#     if rating >= 1900:
+#         print("Division 1")
+#     elif rating >= 1600:
+#         print("Division 2")
+#     elif rating >= 1400:
+#         print("Division 3")
+#     else:
+#         print("Division 4")
+#e
+
+# e
+def solve():
+    t = int(input())  
+    for _ in range(t):
+        n = int(input())  
+        s = input().strip()  
+        
+       
+        min_removals = len(s) - 1  
+        
+        for i in range(len(s)):
+            remaining_digits = s[i:]
+            digit_sum = sum(int(d) for d in remaining_digits)
+            cost = int(remaining_digits) / digit_sum
+            min_removals = min(min_removals, len(s) - len(remaining_digits))
+        
+        print(min_removals)
+
+solve() #incorrect
+
+
+# i
+def solve():
+    t = int(input()) 
+    for _ in range(t):
+        n = int(input())  
+        s = input().strip()  
+        
+        
+        result = int(s[0])
+        
+        
+        for i in range(1, n):
+            digit = int(s[i])
+            
+            if digit == 0 or digit == 1:
+                result *= digit
+            else:
+                result += digit
+        
+       
+        print(result)
+
+
+solve()
+
+import sys
+
+def main():
+    input = sys.stdin.read().split()
+    idx = 0
+    t = int(input[idx])
+    idx += 1
+    for _ in range(t):
+        n = int(input[idx])
+        idx += 1
+        s = input[idx]
+        idx += 1
+        if n == 2:
+            print(int(s))
+            continue
+        min_total = float('inf')
+        for i in range(n-1):
+            groups = []
+            for j in range(i):
+                groups.append(s[j])
+            groups.append(s[i] + s[i+1])
+            for j in range(i+2, n):
+                groups.append(s[j])
+            group_vals = []
+            for g in groups:
+                group_vals.append(int(g))
+            k = len(group_vals)
+            dp = [{} for _ in range(k)]
+            first_val = group_vals[0]
+            dp[0][first_val] = 0
+            for step in range(1, k):
+                current_val = group_vals[step]
+                prev_dp = dp[step-1]
+                current_dp = {}
+                for product in prev_dp:
+                    sum_so_far = prev_dp[product]
+                    new_sum_add = sum_so_far + product
+                    new_product_add = current_val
+                    if new_product_add in current_dp:
+                        if new_sum_add < current_dp[new_product_add]:
+                            current_dp[new_product_add] = new_sum_add
+                    else:
+                        current_dp[new_product_add] = new_sum_add
+                    new_sum_mul = sum_so_far
+                    new_product_mul = product * current_val
+                    if new_product_mul in current_dp:
+                        if new_sum_mul < current_dp[new_product_mul]:
+                            current_dp[new_product_mul] = new_sum_mul
+                    else:
+                        current_dp[new_product_mul] = new_sum_mul
+                dp[step] = current_dp
+            if not dp[-1]:
+                continue
+            current_min = min((s + p) for p, s in dp[-1].items())
+            if current_min < min_total:
+                min_total = current_min
+        print(min_total)
+
+if __name__ == "__main__":
+    main()
